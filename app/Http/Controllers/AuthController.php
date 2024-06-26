@@ -44,7 +44,7 @@ class AuthController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        User::create([
+        $user = User::create([
             'username' => $request->username,
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
@@ -53,6 +53,7 @@ class AuthController extends Controller
             // This is really bad security wise. We should salt the password as well
             'password' => Hash::make($request->password),
         ]);
+        event(new \App\Events\UserCreated($user));
 
         return redirect()->route('login')->with('success', 'Registration successful. Please log in.');
     }
