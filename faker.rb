@@ -24,7 +24,7 @@ rows = (1..100).map do
   ]
 end
 
-CSV.open('users.csv', 'w', headers: ['First Name', 'Last Name', 'Email'], write_headers: false) do |csv|
+CSV.open('users.csv', 'w') do |csv|
   rows.each do |row|
     csv << row
   end

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('lastname');
             $table->dateTime('dob');
             $table->string('email')->unique();
-            $table->timestamp('email_registeration_sent_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

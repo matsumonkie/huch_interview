@@ -37,8 +37,7 @@ class ImportUsersCommand extends Command
             ];
 
             // We can batch insert if we want to improve performance
-            // but hashing the password is really time consuming and will
-            // be our main threshold if we want to speed up things
+            // but hashing the password is really what takes time here
             $user = User::create($userData);
             event(new \App\Events\UserCreated($user));
 

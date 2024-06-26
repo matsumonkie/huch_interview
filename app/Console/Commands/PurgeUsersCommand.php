@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class PurgeUsersCommand extends Command
 {
-    protected $signature = 'users:purge';
+    protected $signature = 'purge:users';
 
     protected $description = 'Purge all records from the users table';
 
