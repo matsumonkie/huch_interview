@@ -36,7 +36,8 @@ class AuthControllerTest extends TestCase
             'password' => 'invalidpassword',
         ]);
 
-        $response->assertStatus(302); // redirect the user to wherever he was before
+        // On invalid credentials, we redirect the user to wherever he was before
+        $response->assertStatus(302);
         $response->assertSessionHasErrors(['email']);
     }
 
@@ -44,7 +45,7 @@ class AuthControllerTest extends TestCase
     {
         $user = User::factory()->create([
             'email' => 'test@example.com',
-            'password' => bcrypt('password'), // Hashed password
+            'password' => bcrypt('password'),
         ]);
 
         $this->actingAs($user);
