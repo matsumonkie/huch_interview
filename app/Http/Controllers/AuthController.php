@@ -50,6 +50,7 @@ class AuthController extends Controller
             'lastname' => $request->lastname,
             'dob' => $request->dob,
             'email' => $request->email,
+            // This is really bad security wise. We should salt the password as well
             'password' => Hash::make($request->password),
         ]);
 
